@@ -1,2 +1,20 @@
-server:
-  port: 8080
+spring.datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${DB_USER}
+    password: ${DB_PW}
+    url: ${DB_URL}
+
+#JWT secret
+spring.jwt.secret: ${JWT_SECRET}
+
+
+logging.level.org.hibernate: info
+management.security.enabled: false
+
+---
+spring.config.activate.on-profile: local
+
+server.port: 8080
+
+spring.datasource:
+    url: jdbc:mariadb://host.docker.internal:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
