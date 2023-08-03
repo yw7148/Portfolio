@@ -1,2 +1,44 @@
-server:
-  port: 8080
+spring:
+  profiles:
+    group:
+      "local": "local-db,local-server"
+      "test":  "local-db,local-server"
+      "prod": "prod-db,prod-server"
+
+
+spring.datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${DB_USER}
+    password: ${DB_PW}
+
+#JWT secret
+spring.jwt.secret: ${JWT_SECRET}
+
+
+logging.level.org.hibernate: info
+management.security.enabled: false
+
+---
+
+spring.config.activate.on-profile: local-db
+
+spring.datasource.url: jdbc:mariadb://host.docker.internal:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
+
+---
+
+spring.config.activate.on-profile: prod-db
+
+spring.datasource.url: jdbc:mariadb://database-mariadb.cduexzeorgbx.ap-northeast-2.rds.amazonaws.com:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
+
+---
+
+spring.config.active.on-profile: prod-server
+
+server.port: 9001
+
+---
+
+spring.config.activate.on-profile: local-server
+
+server.port: 8080
+---
