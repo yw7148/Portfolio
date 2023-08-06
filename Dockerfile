@@ -8,6 +8,8 @@ WORKDIR /workspace/app
 
 COPY . /workspace/app
 RUN --mount=type=cache,target=/root/.gradle bash ./gradlew clean build --status
+RUN ls build
+RUN ls build/libs
 RUN mkdir -p build/dependency && (cd build/dependency; jar -xf ../libs/portfolio-*[0-9].jar)
 
 FROM amazoncorretto:17
