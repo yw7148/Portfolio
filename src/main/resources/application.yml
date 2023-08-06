@@ -2,7 +2,7 @@ spring:
   profiles:
     group:
       "local": "local-db,local-server"
-      "test":  "local-db,local-server"
+      "test":  "prod-db,prod-server"
       "prod": "prod-db,prod-server"
 
 
