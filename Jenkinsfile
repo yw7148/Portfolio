@@ -4,7 +4,7 @@ node {
     }
 
     stage('Build') {
-        sh 'docker build -t portfolio:$BUILD_NUMBER .'
+        sh 'DOCKER_BUILDKIT=1 docker build -t portfolio:$BUILD_NUMBER .'
     }
 
     stage ('Deploy') {
