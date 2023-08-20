@@ -5,10 +5,10 @@ node {
 
     stage('Build') {
         sh 'DOCKER_BUILDKIT=1 docker build \
-            --build-arg DB_URL=${DB_URL} \
-            --build-arg DB_USER=${DB_USER} \
-            --build-arg DB_PW=${DB_PW} \
-            --build-arg JWT_SECRET=${JWT_SECRET} \
+            --build-arg DB_URL="${DB_URL}" \
+            --build-arg DB_USER="${DB_USER}" \
+            --build-arg DB_PW="${DB_PW}" \
+            --build-arg JWT_SECRET="${JWT_SECRET}" \
             -t portfolio:$BUILD_NUMBER .'
     }
 
