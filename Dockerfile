@@ -1,17 +1,20 @@
 FROM amazoncorretto:17 as build
 
-ENV DB_USER $DB_USER
-ENV DB_PW $DB_PW
-ENV DB_URL $DB_URL
-ENV JWT_SECRET $JWT_SECRET
+ARG DB_URL
+ARG DB_USER
+ARG DB_PW
+ARG JWT_SECRET
+
+ENV DB_URL=${DB_URL}
+ENV DB_USER=${DB_USER}
+ENV DB_PW=${DB_PW}
+ENV JWT_SECRET=${JWT_SECRET}
 
 WORKDIR /workspace/app
 
 COPY . /workspace/app
-RUN --mount=type=cache,target=/root/.gradle bash ./gradlew clean build --status
-RUN ls build
-RUN ls build/libs
-RUN mkdir -p build/dependency && (cd build/dependency; jar -xf ../libs/portfolio-*[0-9].jar)
+RUN --mount=type=cache,target=/root/.gradle bash ./gradlew clean build
+RUN mkdir -p ./build/dependency && (cd ./build/dependency; jar -xf ../libs/portfolio-*[0-9].jar)
 
 FROM amazoncorretto:17
 
