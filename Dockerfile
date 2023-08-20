@@ -2,6 +2,7 @@ FROM amazoncorretto:17 as build
 
 ENV DB_USER $DB_USER
 ENV DB_PW $DB_PW
+ENV DB_URL $DB_URL
 ENV JWT_SECRET $JWT_SECRET
 
 WORKDIR /workspace/app
