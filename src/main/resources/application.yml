@@ -5,12 +5,6 @@ spring:
       "test":  "prod-db,prod-server"
       "prod": "prod-db,prod-server"
 
-
-spring.datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    username: ${DB_USER}
-    password: ${DB_PW}
-
 #JWT secret
 spring.jwt.secret: ${JWT_SECRET}
 
@@ -21,14 +15,21 @@ management.security.enabled: false
 ---
 
 spring.config.activate.on-profile: local-db
-
-spring.datasource.url: jdbc:mariadb://host.docker.internal:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
+spring.datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${DB_USER}
+    password: ${DB_PW}
+    url: jdbc:mariadb://host.docker.internal:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
 
 ---
 
 spring.config.activate.on-profile: prod-db
 
-spring.datasource.url: jdbc:mariadb://database-mariadb.cduexzeorgbx.ap-northeast-2.rds.amazonaws.com:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
+spring.datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: ${DB_USER}
+    password: ${DB_PW}
+    url: ${DB_URL}
 
 ---
 
