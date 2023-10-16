@@ -12,8 +12,14 @@ node {
             -t portfolio:$BUILD_NUMBER .'
     }
 
-    stage ('Deploy') {
-        sh 'docker rm -f $(docker ps -qa --filter name=portfolio)'
-        sh 'docker run -d -p 9001:9001 --name portfolio -e PROFILE=prod --env-file /var/jenkins_home/secrets/youngwon/serverSecrets portfolio:$BUILD_NUMBER'
+    stage('Push to Docker hub') {
+        sh 'docker tag portfolio:$BUILD_NUMBER yw7148/portfolio:$BUILD_NUMBER'
+        sh 'docker push yw7148/portfolio:$BUILD_NUMBER';
+    }
+
+    stage ('Deploy') { 
+        sh 'docker --context jenkins_was pull yw7148/portfolio:$BUILD_NUMBER'
+        sh 'docker --context jenkins_was rm -f $(docker ps -qa --filter name=portfolio)'
+        sh 'docker --context jenkins_was run -d -p 9001:9001 --name portfolio -e PROFILE=prod --env-file /var/jenkins_home/secrets/youngwon/serverSecrets yw7148/portfolio:$BUILD_NUMBER'
     }
 }
