@@ -22,5 +22,6 @@ node {
             -e PROFILE=prod \
             --env-file /var/jenkins_home/secrets/youngwon/serverSecrets \
             yw7148/portfolio:$BUILD_NUMBER'
+        
     }
 }
