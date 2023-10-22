@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("")
 public class HomeController {
     @GetMapping("")
+    public String redirectToPortfolio() {
+        return "redirect:/portfolio";
+    }
+
+    @GetMapping("/portfolio")
     public String home() {
         return "home";
     }
