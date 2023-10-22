@@ -18,7 +18,8 @@ node {
     }
 
     stage ('Deploy') { 
-        sh 'docker --context jenkins_was run -d --rm --name portfolio -p 9001:9001 \
+        sh 'docker --context jenkins_was rm -f portfolio || true'
+        sh 'docker --context jenkins_was run -d --name portfolio -p 9001:9001 \
             -e PROFILE=prod \
             --env-file /var/jenkins_home/secrets/youngwon/serverSecrets \
             yw7148/portfolio:$BUILD_NUMBER'
