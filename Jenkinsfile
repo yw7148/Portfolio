@@ -19,7 +19,7 @@ node {
 
     stage ('Deploy') { 
         sh 'docker --context jenkins_was pull yw7148/portfolio:$BUILD_NUMBER'
-        sh 'docker --context jenkins_was rm -f portfolio'
+        sh 'docker --context jenkins_was rm -f portfolio || true'
         sh 'docker --context jenkins_was run -d -p 9001:9001 --name portfolio -e PROFILE=prod --env-file /var/jenkins_home/secrets/youngwon/serverSecrets yw7148/portfolio:$BUILD_NUMBER'
     }
 }
