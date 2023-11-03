@@ -17,6 +17,9 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/portfolio/css/styles.css" rel="stylesheet" />
+        <!-- Youngwon's custom css -->
+        <link rel="stylesheet" href="/portfolio/css/portfolio.css">
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -54,9 +57,11 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">Projects</h2>
+                        <h2 class="text-white mt-0">Youngwon's History</h2>
                         <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Projects</p>
+                        <p class="text-white-75 mb-4">
+                            2022.01.03 ~ Present: <img >CJ CheilJedang
+                        </p>
                         <a class="btn btn-light btn-xl" href="#services">Get Started with Demos!</a>
                     </div>
                 </div>
@@ -103,6 +108,15 @@
         <div id="portfolio">
             <div class="container-fluid p-0">
                 <div class="row g-0">
+                    <div th:each="project: ${projects}" class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" th:title="${project.name}" href=l"https://github.com/yw7148/Portfolio-Backend" target="_blank">
+                            <img class="img-fluid" th:src="${project.img}" alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">FullStack</div>
+                                <div class="project-name">Portfolio</div>
+                            </div>
+                        </a>
+                    </div>
                     <div class="col-lg-4 col-sm-6">
                         <a class="portfolio-box" title="Project Name" href="https://github.com/yw7148/Portfolio-Backend" target="_blank">
                             <img class="img-fluid" src="/portfolio/img/youngwon.png" alt="..." />
@@ -113,7 +127,7 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="https://github.com/yw7148/Server" title="Project Name">
+                        <a class="portfolio-box" href="https://github.com/yw7148/Server" title="Oracle cloud">
                             <img class="img-fluid" src="/portfolio/img/youngwon.png" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">DevOps</div>
@@ -122,38 +136,11 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="https://github.com/yw7148/Danjinae_Backend" title="Project Name">
+                        <a class="portfolio-box" href="https://github.com/yw7148/Danjinae_Backend" title="Danjinae">
                             <img class="img-fluid" src="/portfolio/img/Danjinae.jpg" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-category text-white-50">Backend</div>
                                 <div class="project-name">Danjinae Backend</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg" title="Project Name">
-                            <img class="img-fluid" src="/portfolio/img/youngwon.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg" title="Project Name">
-                            <img class="img-fluid" src="/portfolio/img/youngwon.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg" title="Project Name">
-                            <img class="img-fluid" src="/portfolio/img/youngwon.png" alt="..." />
-                            <div class="portfolio-box-caption p-3">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
                             </div>
                         </a>
                     </div>
@@ -197,10 +184,10 @@
                     </div>
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
+                    <a href="mailto:yw7148@naver.com" target="_blank" class="col-lg-4 text-center mb-5 mb-lg-0 icon-link text-decoration-none text-white">
                         <i class="bi-mailbox fs-2 mb-3 text-muted"></i>
                         <div>yw7148@naver.com</div>
-                    </div>
+                    </a>
                     <a href="https://github.com/yw7148" target="_blank" class="col-lg-4 text-center mb-5 mb-lg-0 icon-link text-decoration-none text-white">
                       <i class="bi-github fs-2 mb-3 text-muted"></i>
                       <div>@yw7148</div>
