@@ -109,38 +109,11 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div th:each="project: ${projects}" class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" th:title="${project.name}" href=l"https://github.com/yw7148/Portfolio-Backend" target="_blank">
-                            <img class="img-fluid" th:src="${project.img}" alt="..." />
+                        <a class="portfolio-box" th:title="${project.name}" th:data-project-id="${project.id}">
+                            <img class="img-fluid" th:src="|/portfolio/img/${project.img}|" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">FullStack</div>
-                                <div class="project-name">Portfolio</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" title="Project Name" href="https://github.com/yw7148/Portfolio-Backend" target="_blank">
-                            <img class="img-fluid" src="/portfolio/img/youngwon.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">FullStack</div>
-                                <div class="project-name">Portfolio</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="https://github.com/yw7148/Server" title="Oracle cloud">
-                            <img class="img-fluid" src="/portfolio/img/youngwon.png" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">DevOps</div>
-                                <div class="project-name">Oracle Cloud Server</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="https://github.com/yw7148/Danjinae_Backend" title="Danjinae">
-                            <img class="img-fluid" src="/portfolio/img/Danjinae.jpg" alt="..." />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Backend</div>
-                                <div class="project-name">Danjinae Backend</div>
+                                <div class="project-category text-white-50" th:text="${project.category}"></div>
+                                <div class="project-name" th:text="${project.name}"></div>
                             </div>
                         </a>
                     </div>
