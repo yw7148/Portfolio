@@ -14,5 +14,4 @@ public class Project {
     String name;
     String category;
     String img;
-    List<Program> programs;
 }

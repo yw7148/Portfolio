@@ -17,8 +17,8 @@ management.security.enabled: false
 spring.config.activate.on-profile: local-db
 spring.datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    username: ${DB_USER}
-    password: ${DB_PW}
+    username: ${LOCAL_DB_USER}
+    password: ${LOCAL_DB_PW}
     url: jdbc:mariadb://host.docker.internal:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
 
 ---
