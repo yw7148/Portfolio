@@ -11,9 +11,4 @@ public class HomeController {
     public String redirectToPortfolio() {
         return "redirect:/portfolio";
     }
-
-    @GetMapping("/portfolio")
-    public String home() {
-        return "home";
-    }
 }
