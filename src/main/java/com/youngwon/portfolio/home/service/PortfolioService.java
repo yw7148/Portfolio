@@ -11,6 +11,8 @@ import com.youngwon.portfolio.home.dto.Project;
 import com.youngwon.portfolio.home.entity.ProjectEntity;
 import com.youngwon.portfolio.home.repository.ProjectRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class PortfolioService {
     @Autowired
@@ -30,6 +32,7 @@ public class PortfolioService {
             .build();
     }
 
+    @Transactional
     public List<Program> programsInProject(Integer projectId) {
         ProjectEntity project = projectRepository.findById(projectId).get();
 
