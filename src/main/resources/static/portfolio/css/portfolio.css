@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'NanumGothic';
+    src: url('/common/fonts/NanumGothic.ttf') format('truetype');
+}
+
+* {
+    font-family: 'NanumGothic', Arial, Helvetica, sans-serif;
+}
+
 .portfolio-box {
     width: 100%;
     height: 100%;
