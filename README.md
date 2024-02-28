@@ -21,7 +21,7 @@
 
 > to build multi-platform image, docker buildx builder is required in *docker build* environment:  
 > *docker buildx create --name mybuilder --bootstrap --use*  
-> for more information: [Multi-Platform Images | Docker Docker](https://docs.docker.com/build/building/multi-platform/)
+> for more information: [Multi-Platform Images | Docker Docs](https://docs.docker.com/build/building/multi-platform/)
 ```bash
 DOCKER_BUILDKIT=1 docker buildx build \
     --platform linux/amd64,linux/arm64 \ #option to support multi-platform
