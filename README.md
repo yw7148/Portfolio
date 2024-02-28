@@ -17,8 +17,14 @@
 
 ## Build
 ### Build docker image
+> In my case, my production environment is *linux/arm64*, *--platform linux/amd64,linux/arm64* is added to support multi-platform
+
+> to build multi-platform image, docker buildx builder is required on your *docker build* environment:  
+> *docker buildx create --name mybuilder --bootstrap --use*  
+> for more information: [Multi-Platform Images | Docker Docker](https://docs.docker.com/build/building/multi-platform/)
 ```bash
-DOCKER_BUILDKIT=1 docker build \
+DOCKER_BUILDKIT=1 docker buildx build \
+    --platform linux/amd64,linux/arm64 \ #option to support multi-platform
     --build-arg DB_URL=${TEST_DB_URL} \
     --build-arg DB_USER=${TEST_DB_USER} \
     --build-arg DB_PW=${TEST_DB_PASSWORD} \
