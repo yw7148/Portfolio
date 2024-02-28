@@ -4,7 +4,8 @@ node {
     }
 
     stage('Build') {
-        sh 'DOCKER_BUILDKIT=1 docker build \
+        sh 'DOCKER_BUILDKIT=1 docker buildx build \
+            --platform linux/arm64,linux/amd64 \
             --build-arg DB_URL="${DB_URL}" \
             --build-arg DB_USER="${DB_USER}" \
             --build-arg DB_PW="${DB_PW}" \
@@ -22,6 +23,5 @@ node {
             -e PROFILE=prod \
             --env-file /var/jenkins_home/secrets/youngwon/serverSecrets \
             yw7148/portfolio:latest'
-        
     }
 }
