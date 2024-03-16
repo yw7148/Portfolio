@@ -10,7 +10,7 @@ node {
             --build-arg DB_USER="${DB_USER}" \
             --build-arg DB_PW="${DB_PW}" \
             --build-arg JWT_SECRET="${JWT_SECRET}" \
-            -t yw7148/portfolio:latest .'
+            -t yw7148/portfolio:$BUILD --load .'
     }
 
     stage('Push to Docker hub') {
