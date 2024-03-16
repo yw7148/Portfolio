@@ -33,8 +33,8 @@ public class PortfolioController {
         return portfolioService.programsInProject(projectId);
     }
 
-    @GetMapping("/detail")
-    public String portfolioDetail() {
-        return "detail";
+    @GetMapping("/cv")
+    public String portfolioCVPage() {
+        return "portfolio-cv";
     }
 }
