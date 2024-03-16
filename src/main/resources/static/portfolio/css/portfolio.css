@@ -1,10 +1,32 @@
 @font-face {
     font-family: 'NanumGothic';
-    src: url('/common/fonts/NanumGothic.ttf') format('truetype');
+    src: url('/portfolio/fonts/NanumGothic.ttf') format('truetype');
 }
 
-* {
+@font-face {
+    font-family: 'NanumGothic';
+    src: url('/portfolio/fonts/NanumGothicBold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'NanumGothic';
+    src: url('/portfolio/fonts/NanumGothicExtraBold.ttf') format('truetype');
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: 'NanumGothic';
+    src: url('/portfolio/fonts/NanumGothicLight.ttf') format('truetype');
+    font-weight: lighter;
+}
+
+body * {
     font-family: 'NanumGothic', Arial, Helvetica, sans-serif;
+}
+
+.masthead {
+    height: 100dvh;
 }
 
 .portfolio-box {
@@ -19,4 +41,20 @@
 
 #portfolio .container-fluid {
     max-width: 1500px;
+}
+
+#about #skills {
+    height: 50px;
+    overflow-x: auto;
+}
+
+@media screen and (min-width: 1200px){
+    
+    #about #skills {
+        height: 100px;
+    }
+
+    #about .fs-xl-5 {
+        font-size: 1.25rem !important;
+    }
 }
