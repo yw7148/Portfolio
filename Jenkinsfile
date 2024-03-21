@@ -3,7 +3,7 @@ node {
         checkout scm
     }
 
-    stage('Build') {
+    stage('Build & Push to Jenkins') {
         sh 'DOCKER_BUILDKIT=1 docker buildx build \
             --platform linux/arm64,linux/amd64 \
             --build-arg DB_URL="${DB_URL}" \
