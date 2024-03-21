@@ -23,16 +23,8 @@ public class ContactEntity {
     @Id
     Integer id;
 
-    @Column(name="name")
     String name;
-
-    @Column(name = "email")
     String email;
-
-    @Column(name = "message")
     String message;
-
-    @CreatedDate
-    @Column(name="date")
-    LocalDateTime  date;
+    LocalDateTime  contactDate;
 }
