@@ -50,10 +50,38 @@ let portfolioProjects;
 let projectProgramsModal = new ProjectProgramsModal();
 window.addEventListener('load', setEvents)
 
-
 function setEvents() {
     document.getElementById('portfolio').querySelectorAll('.portfolio-box').forEach(box => {
         box.addEventListener('click', showProjectModal)
+    })
+    document.getElementById('submitButton').addEventListener('click', async function(ev) {
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let message = document.getElementById('message').value;
+
+        let response = await fetch('/portfolio/contact', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                'name': name,
+                'email': email,
+                'message': message
+            })
+        });
+
+        let result = await response.json();
+        let success = response.ok;
+        if(success && result) {
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Successfully sent message!"
+            });
+        }
+
+        ev.preventDefault();
     })
 }
 

@@ -1,14 +1,19 @@
 package com.youngwon.portfolio.home.service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.youngwon.portfolio.home.dto.Contact;
 import com.youngwon.portfolio.home.dto.Program;
 import com.youngwon.portfolio.home.dto.Project;
+import com.youngwon.portfolio.home.entity.ContactEntity;
 import com.youngwon.portfolio.home.entity.ProjectEntity;
+import com.youngwon.portfolio.home.repository.ContactRepository;
 import com.youngwon.portfolio.home.repository.ProjectRepository;
 
 import jakarta.transaction.Transactional;
@@ -17,6 +22,9 @@ import jakarta.transaction.Transactional;
 public class PortfolioService {
     @Autowired
     ProjectRepository projectRepository;
+
+    @Autowired
+    ContactRepository contactRepository;
 
     public List<Project> projects() {
         return projectRepository.findAll().stream()
@@ -34,6 +42,8 @@ public class PortfolioService {
 
     @Transactional
     public List<Program> programsInProject(Integer projectId) {
+        if(projectId == null) return List.of();
+
         ProjectEntity project = projectRepository.findById(projectId).get();
 
         List<Program> programs = project.getPrograms().stream().map(programProject -> {
@@ -45,5 +55,22 @@ public class PortfolioService {
         }).toList();
 
         return programs;
+    }
+
+    public Boolean contactYoungwon(Contact contact) {
+        if(contact == null) return false;
+        Integer maxId = contactRepository.findMaxId();
+        ContactEntity entity = ContactEntity.builder()
+            .id(maxId == null ? 0 : maxId + 1)
+            .name(contact.getName())
+            .email(contact.getEmail())
+            .message(contact.getMessage())
+            .date(LocalDateTime.now(ZoneId.of("Asia/Seoul")))
+            .build();
+        
+        if(entity == null) return false;
+        entity = contactRepository.save(entity);
+
+        return true;
     }
 }
