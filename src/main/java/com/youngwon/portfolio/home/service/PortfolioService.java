@@ -65,7 +65,7 @@ public class PortfolioService {
             .name(contact.getName())
             .email(contact.getEmail())
             .message(contact.getMessage())
-            .date(LocalDateTime.now(ZoneId.of("Asia/Seoul")))
+            .contactDate(LocalDateTime.now(ZoneId.of("Asia/Seoul")))
             .build();
         
         if(entity == null) return false;
