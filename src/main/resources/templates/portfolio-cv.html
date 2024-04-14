@@ -7,221 +7,147 @@
     <link rel="shortcut icon" href="/img/youngwon.png" type="image/x-icon">
     <link rel="stylesheet" href="/portfolio/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/portfolio/assets/fontawesome/css/all.min.css">
-    <style>
-        @font-face {
-            font-family: 'NanumGothic';
-            src: url('/portfolio/fonts/NanumGothic.ttf') format('truetype');
-        }
-
-        @font-face {
-            font-family: 'NanumGothic';
-            src: url('/portfolio/fonts/NanumGothicBold.ttf') format('truetype');
-            font-weight: bold;
-        }
-
-        @font-face {
-            font-family: 'NanumGothic';
-            src: url('/portfolio/fonts/NanumGothicExtraBold.ttf') format('truetype');
-            font-weight: bolder;
-        }
-
-        @font-face {
-            font-family: 'NanumGothic';
-            src: url('/portfolio/fonts/NanumGothicLight.ttf') format('truetype');
-            font-weight: lighter;
-        }
-
-        :root {
-            --profile-width: 500px;
-        }
-
-        body {
-            width: 100dvw;
-            height: 100dvh;
-            font-family: NanumGothic;
-        }
-
-        #profile {
-            z-index: 100;
-            height: 100%;
-        }
-
-        #profile #profileContent {
-            margin-left: calc(0px - var(--profile-width));
-            width: var(--profile-width);
-            height: 100%;
-            background-color: white;
-            transition: margin-left .3s ease-in-out;
-        }
-
-        #profile.active #profileContent {
-            margin-left: 0px;
-        }
-
-        #profile #profileHeader {
-            width: var(--profile-width);
-            position: absolute;
-        }
-
-        #profileCollapseBtn {
-            margin-left: 100%;
-            padding: 1rem 0.5rem;
-            border-radius: 0 20% 20% 0;
-            background-color: white;
-            color: #666;
-            cursor: pointer;
-        }
-
-        #profile.active #profileCollapseBtn .fa-solid.fa-angles-right{
-            transform: rotate(180deg);
-        }
-
-        @media screen and (max-width: 800px) {            
-            #profile {
-                position: fixed;
-            }
-
-            #profile.active {
-                width: 100%;
-                background: #0006;
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            :root {
-                --profile-width: calc(100dvw - 3rem);
-            }
-        }
-
-        .text-gray{
-            color: rgb(151, 151, 151);
-        }
-
-        #projects .project-header .company-logo {
-            height: 3rem;
-        }
-
-        .card-header.card-collapse {
-            cursor: pointer;
-        }
-        .card-header.card-collapse .fa-solid.fa-chevron-down {
-            transition: .3s transform ease-in-out;
-        }
-        .card-header.card-collapse .collapsed .fa-solid.fa-chevron-down {
-            transform: rotate(90deg);
-        }
-
-        .project-body .skills {
-            overflow-x: auto;
-            height: 100px;
-        }
-        .project-body .skills::before {
-            display: flex;
-            font-family: "Font Awesome 6 Free";
-            content: "\f101";
-            font-weight: 1000;
-            position: absolute;
-            height: 100px;
-            width: 100px;
-            background: linear-gradient(90deg, transparent, #fff);
-            color: #888;
-            justify-content: center;
-            align-items: center;
-            right: 0;
-            font-size: xx-large;
-        }
-    </style>
+    <link rel="stylesheet" href="/portfolio/css/portfolio-cv.css">
 </head>
 <body>
     <!-- Navigation-->
-    
-    <div class="d-flex w-100 h-100">
-            <section id="profile" class="active">
-                <div id="profileContent">
-                    <div id="profileHeader" class="d-flex">
-                        <span id="profileCollapseBtn">
-                            <i class="fa-solid fa-angles-right"></i>
-                        </span>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/">Youngwon</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger" href="/portfolio/cv">CV</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="mainContainer" class="w-100 h-100 mx-auto">
+        <section id="profile" class="p-xl-5 p-2">
+            <div id="profileContent" class="card card-body">
+                <div class="w-100">
+                    <div class="profile-img">
+                        <img width="100%" src="/portfolio/img/youngwon.png" alt="">
                     </div>
-                    <div class="w-100 px-5">
-                        <div class="p-5">
-                            <img width="100%" src="/portfolio/img/youngwon.png" alt="">
+                    <div>
+                        <table class="table b-3">
+                            <tr>
+                                <th>Name</th>
+                                <td>김영원 (Young Won Kim)</td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <th>Date of Birth</th>
+                                <td>June 05 1998 (25)</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>yw7148@naver.com</td>
+                            </tr>
+                        </table>
+                        <div class="profile-links d-flex justify-content-around py-3">
+                            <a class="mt-3 fa-brands fa-github text-decoration-none text-dark" target="_blank" href="https://github.com/yw7148"></a>
+                            <a class="mt-3 fa-brands fa-docker text-decoration-none text-dark" target="_blank" href="https://dockerhub.io/yw7148"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="w-100 h-100 p-xl-5 p-2 d-flex flex-column gap-2">
+            <div class="project mt-xl-4">
+                <div class="project-header card card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <img class="company-logo" src="/portfolio/img/CJ_logo_small.jpg">
                         </div>
                         <div>
-                            <table class="table b-3">
-                                <tr>
-                                    <th>Name</th>
-                                    <td>Young Won Kim (김영원)</td>
-                                </tr>
-                                <tr>
-                                    <th>Gender</th>
-                                    <td>Male</td>
-                                </tr>
-                            </table>
+                            <div class="fw-bold company-name"><a class="me-2 fa-brands fa-youtube text-decoration-none text-danger" href="https://youtu.be/U1DZWYMG648"></a> CJ CheilJedang (CJ제일제당)</div>
+                            <div class="text-end text-gray company-detail">IT Developer | 2022.01.03 ~ Present</div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section id="projects" class="w-100 h-100 bg-dark p-5 d-flex flex-column gap-2">
-                <div class="project mt-xl-4">
-                    <div class="project-header card card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <img class="company-logo" src="/portfolio/img/CJ_logo_small.jpg">
-                            <div>
-                               <div class="fw-bold fs-4 company-name">CJ CheilJedang (CJ제일제당)</div>
-                               <div class="text-end fw-bold fs-6 text-gray company-detail ">IT Developer | 2022.01.03 ~ Present</div>
+                <div class="project-body p-3 d-flex flex-column gap-2">
+                    <div id="cjCmptBio" class="card">
+                        <div class="card-header card-collapse p-3">
+                            <div class="d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#cjCmptBio .collapse" aria-expanded="false" aria-controls="#cjCmptBio .collapse">
+                                <span class="fw-bold">Computational Biology Web Platform</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="collapse show">
+                            <div class="card-body project-detail">
+                                <table class="table">
+                                    <tr>
+                                        <th class="col-3 text-center">Period</th>
+                                        <td>2022.01.03 ~ Present</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3 text-center">Position</th>
+                                        <td>Full-Stack Developer / DevOps Engineer</td>
+                                    </tr>
+                                </table>
+                                <p >
+                                    Computational Biology 데이터 관리/AI 분석 실행/결과 Visualization을 위한 Web Platform 구축 Project<br><br>
+                                    <b>Full Stack 개발자</b>로 참여하여 <b>메인 Template/로그인/로그/권한 시스템</b> 등 전반적인 Platform 화 진행. 
+                                </p>
+                                <div class="skills d-flex gap-2 mt-xl-5 mt-3">
+                                    <img src="/portfolio/img/skills/Java-Light.svg" alt="">
+                                    <img src="/portfolio/img/skills/Spring-Light.svg" alt="">
+                                    <img src="/portfolio/img/skills/MySQL-Light.svg" alt="">
+                                    <img src="/portfolio/img/skills/Python-Light.svg" alt="">
+                                    <img src="/portfolio/img/skills/FastAPI.svg" alt="">
+                                    <img src="/portfolio/img/skills/Docker.svg" alt="">
+                                    <img src="/portfolio/img/skills/Jenkins-Light.svg" alt="">
+                                    <img src="/portfolio/img/skills/Nginx.svg" alt="">
+                                    <img src="/portfolio/img/skills/JavaScript.svg" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="project-body p-3 d-flex flex-column gap-2">
-                        <div id="cjCmptBio" class="card">
-                            <div class="card-header card-collapse p-3">
-                                <div class="d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#cjCmptBio .collapse" aria-expanded="false" aria-controls="#cjCmptBio .collapse">
-                                    <span class="fs-5 fw-bold">Computational Biology Web Platform</span>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
+                    <div id="cjLab" class="card">
+                        <div class="card-header card-collapse p-3">
+                            <div class="d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#cjLab .collapse" aria-expanded="false" aria-controls="#cjLab .collapse">
+                                <span class="fw-bold">CJ Blossom Park 내부 Web Service</span>
+                                <i class="fa-solid fa-chevron-down"></i>
                             </div>
-                            <div class="collapse show">
-                                <div class="card-body">
-                                    <table class="table">
-                                        <tr>
-                                            <th class="col-3 text-center">Period</th>
-                                            <td>2022.01.03 ~ Present</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="col-3 text-center">Position</th>
-                                            <td>Full-Stack Developer / DevOps Engineer</td>
-                                        </tr>
-                                    </table>
-                                    <p class="f">
-                                        내용 테스트
-                                    </p>
-                                    <div class="skills d-flex gap-2 mt-xl-5 mt-3">
-                                        <img src="/portfolio/img/skills/Java-Light.svg" alt="">
-                                        <img src="/portfolio/img/skills/Spring-Light.svg" alt="">
-                                        <img src="/portfolio/img/skills/MySQL-Light.svg" alt="">
-                                        <img src="/portfolio/img/skills/Docker.svg" alt="">
-                                        <img src="/portfolio/img/skills/Jenkins-Light.svg" alt="">
-                                        <img src="/portfolio/img/skills/JavaScript.svg" alt="">
-                                        <img src="/portfolio/img/skills/AWS-Light.svg" alt="">
-                                        <img src="/portfolio/img/skills/CPP.svg" alt="">
-                                        <img src="/portfolio/img/skills/CS.svg" alt="">
-                                    </div>
+                        </div>
+                        <div class="collapse show">
+                            <div class="card-body project-detail">
+                                <table class="table">
+                                    <tr>
+                                        <th class="col-3 text-center">Period</th>
+                                        <td>2022.01.03 ~ Present</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3 text-center">Position</th>
+                                        <td>Full-Stack Developer / DevOps Engineer</td>
+                                    </tr>
+                                </table>
+                                <p>
+                                    CJ 연구소 Web Platform 운영 및 유지보수<br><br>
+                                    <b>Full Stack 개발자</b>로 참여하여 <b>Study Tool/설비 스케쥴 관리 Tool</b> 등 연구 지원 Tool 개발. 
+                                </p>
+                                <div class="skills d-flex gap-2 mt-xl-5 mt-3">
+                                    <img src="/portfolio/img/skills/Java-Light.svg" alt="">
+                                    <img src="/portfolio/img/skills/Spring-Light.svg" alt="">
+                                    <img src="/portfolio/img/skills/Oracle-Light.svg" alt="">
+                                    <img src="/portfolio/img/skills/JQuery.svg" alt="">
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
-                <hr>
-                
-            </section>
+            </div>
+            <hr>
+        </section>
    </div>
    <script src="/portfolio/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-   <script>
-        document.getElementById('profileCollapseBtn').addEventListener('click', (ev) => {
-            document.getElementById('profile').classList.toggle('active')
-        })
    </script>
 </body>
 </html>
