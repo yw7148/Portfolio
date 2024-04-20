@@ -48,3 +48,6 @@ docker run --pull always -d --name portfolio -p 9001:9001 \
     --env-file ${path_to_envfile} \
     yw7148/portfolio:latest
 ```
+
+# License
+The source code for the site is licensed under the MIT license, which you can find in the LICENSE.md file.
