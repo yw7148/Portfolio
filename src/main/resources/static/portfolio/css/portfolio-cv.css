@@ -71,6 +71,10 @@ body {
     color: rgb(151, 151, 151);
 }
 
+#projects {
+    overflow-y: auto;
+}
+
 #projects .project-header .company-logo {
     height: 3rem;
 }
@@ -129,6 +133,9 @@ body {
         margin: 1.5rem auto;
     }
 
+    #projects {
+        overflow-y: visible;
+    }
     .project-body .project-detail {
         font-size: small;
     }
