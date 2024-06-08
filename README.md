@@ -1,6 +1,7 @@
 # Youngwon's Portfolio
 > Backend/Full-stack Developer **Youngwon**  
 > Portfolio url: http://youngwon.me  
+> Youngwon's server configuration: https://github.com/yw7148/server
 
 Welcome to my Backend developer portfolio repository! This project showcases my skills and projects as a backend developer, including various technologies and tools I've mastered.
 
